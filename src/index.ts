@@ -21,6 +21,7 @@ class Game {
 
     gold: number = 0;
     area: number = 1;
+    areaTotal: number = 1;
     floor: number = 1;
     player: Player;
     currentEnemy: Enemy;
@@ -37,7 +38,7 @@ class Game {
             );
         } else {
             this.currentEnemy = new Enemy(
-                StatsGen.generateEnemyStats(this.floor, this.area)
+                StatsGen.generateEnemyStats(this.areaTotal)
             );
         }
 
@@ -45,16 +46,18 @@ class Game {
         this.currentEnemy.setFoeContext(this.player);
     }
 
-    public addGold = () => this.gold += StatsGen.generateGold(this.area);
+    public addGold = () => this.gold += StatsGen.generateGold(this.areaTotal);
 
     public nextarea = () => {
-        if (this.area % 5 == 0) {
+        this.addGold();
+        if (this.area % 20 == 0) {
             this.generateEnemy(true);
             this.floor++;
             this.area = 1;
         } else {
             this.generateEnemy(false);
             this.area++;
+            this.areaTotal++;
         }
     }
 

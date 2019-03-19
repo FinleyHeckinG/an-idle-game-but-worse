@@ -23,7 +23,7 @@ class Enemy extends Entity {
 
         this.HPDisplay = new MappedDOM(
             document.getElementById("enemyHP"),
-            this.hp.toFixed(2),
+            this.hp,
             "innerHTML"
         );
 
@@ -35,7 +35,6 @@ class Enemy extends Entity {
     }
 
     public takeDamageCallbacks(dmg: number): void {
-        dmg = parseFloat(dmg.toFixed(2));
         this.damageLabelManager.recieveAttack(dmg);
     }
 

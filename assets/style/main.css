@@ -40,9 +40,9 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
 }
 #enemyHP{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: -20px;
+    right: 0;
+    transform: translateY(-50%);
     color: #000;
     text-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
@@ -54,7 +54,6 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     width: calc(100% - 100px);
     background: rgba(0,0,0,0.8);
     border-radius: 10px;
-    overflow: hidden;
 }
 #enemyHPBar{
     position:absolute;
@@ -64,6 +63,7 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     width: 100%;
     background: rgb(255, 10, 10);
     transition: width 0.1s linear;
+    border-radius: 10px;
 }
 
 #click {

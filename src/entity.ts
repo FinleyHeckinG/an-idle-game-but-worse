@@ -28,12 +28,12 @@ class Entity {
     }
 
     protected updateHPDisplay(): void {
-        this.HPDisplay.val = this.hp.toFixed(2);
+        this.HPDisplay.val = this.hp;
         this.updateHealthBar();
     }
 
     public giveAttack(event: AttackEvent): void {
-        this.foe.hp = this.foe.hp - Math.round((event.damage * (Math.random() + settings.damageVariance)) * 100) / 100;
+        this.foe.hp = this.foe.hp - event.damage;
     }
 
     public setFoeContext(enemy: Entity): void {

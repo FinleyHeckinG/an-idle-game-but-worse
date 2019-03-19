@@ -14,7 +14,7 @@ class Player extends Entity {
     statistics: EntityStats = {
         max_health: 100,
         health: 100,
-        base_damage: 1,
+        base_damage: 10,
         exp: 0,
         exp_to_next: 20,
     }
