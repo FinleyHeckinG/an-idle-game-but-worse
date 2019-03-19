@@ -1,21 +1,21 @@
 import Player from "./player";
 import Enemy from "./enemy";
 
-import { EntityStats } from './entity'
+import { EntityStats } from './data/interfaces'
 
-class Game{
+class Game {
 
     gold: number = 0;
     stage: number = 1;
     player: Player;
     currentEnemy: Enemy;
 
-    constructor(){
+    constructor() {
         this.player = new Player();
         this.generateEnemy();
     }
 
-    private generateEnemy(){
+    private generateEnemy() {
         let stats = (): EntityStats => {
             return {
                 identifier: this.stage,

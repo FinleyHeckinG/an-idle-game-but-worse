@@ -1,5 +1,6 @@
 import Entity from './entity'
 import { EntityStats } from './data/interfaces'
+import damageLabelManager from './components/damageLabel'
 
 import MappedDOM from './includes/domMap'
 
@@ -8,6 +9,7 @@ class Enemy extends Entity {
     statistics: EntityStats
     healthBar: MappedDOM
     hitShadow: MappedDOM
+    damageLabelManager: damageLabelManager;
 
     constructor(stats: EntityStats) {
         super();
@@ -25,7 +27,16 @@ class Enemy extends Entity {
             "innerHTML"
         );
 
+        this.damageLabelManager = new damageLabelManager(
+            document.getElementById("damage-taking-box")
+        );
+
         this.updateHPDisplay();
+    }
+
+    public takeDamageCallbacks(dmg: number): void {
+        dmg = parseFloat(dmg.toFixed(2));
+        this.damageLabelManager.recieveAttack(dmg);
     }
 
     public updateHealthBar() {

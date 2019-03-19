@@ -15,7 +15,9 @@ class Entity {
         let prevHealth = this.hp;
         this.statistics.health = val;
         if (val < prevHealth) {
-            this.takeDamageCallbacks();
+            // Recieved Attack
+            let diff = prevHealth - val;
+            this.takeDamageCallbacks(diff);
         }
         if (val <= 0) {
             GAME.nextStage();
@@ -37,7 +39,7 @@ class Entity {
         this.foe = enemy;
     }
 
-    public takeDamageCallbacks(): void { }
+    public takeDamageCallbacks(dmg: number): void { }
     public updateHealthBar(): void { }
 }
 
