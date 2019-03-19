@@ -1,15 +1,15 @@
 import Entity from './entity'
-import { EntityStats } from './entity'
+import { EntityStats } from './data/interfaces'
 
-import ClickListener from './components/clickListener'
-import MappedDOM from './components/domMap'
+import ClickListener from './includes/clickListener'
+import MappedDOM from './includes/domMap'
 
 const attackButton: HTMLElement = document.getElementById("click");
 
-class Player extends Entity{
+class Player extends Entity {
 
     level: number = 1;
-    
+
     //Defaults
     statistics: EntityStats = {
         identifier: "Player",
@@ -20,11 +20,11 @@ class Player extends Entity{
         exp_to_next: 20,
     }
 
-    constructor(){
+    constructor() {
         super();
-        new ClickListener(attackButton, ()=>{
+        new ClickListener(attackButton, () => {
             this.giveAttack({
-                damage:this.statistics.base_damage
+                damage: this.statistics.base_damage
             })
         });
     }

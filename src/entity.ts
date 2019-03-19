@@ -1,56 +1,44 @@
 import GAME from './index'
-import MappedDOM from './components/domMap'
+import MappedDOM from './includes/domMap'
+import { EntityStats, AttackEvent } from './data/interfaces'
 
-export interface EntityStats {
-    identifier: number | string,
-    base_damage: number,
-    max_health: number,
-    health: number,
-    exp?: number,
-    exp_to_next?: number,
-}
-
-interface AttackEvent{
-    damage: number,
-}
-
-class Entity{
+class Entity {
     statistics: EntityStats;
     foe: Entity;
     HPDisplay: MappedDOM;
 
-    get hp():number {
+    get hp(): number {
         return this.statistics.health;
     }
 
     set hp(val: number) {
         let prevHealth = this.hp;
         this.statistics.health = val;
-        if(val < prevHealth){
+        if (val < prevHealth) {
             this.takeDamageCallbacks();
         }
-        if(val <= 0){
+        if (val <= 0) {
             GAME.nextStage();
         } else {
             this.updateHPDisplay();
         }
     }
 
-    protected updateHPDisplay():void{
+    protected updateHPDisplay(): void {
         this.HPDisplay.val = this.hp.toFixed(2);
         this.updateHealthBar();
     }
 
-    public giveAttack(event: AttackEvent): void{
+    public giveAttack(event: AttackEvent): void {
         this.foe.hp = this.foe.hp - Math.round((event.damage * (Math.random() + 1)) * 100) / 100;
     }
 
-    public setFoeContext(enemy: Entity): void{
+    public setFoeContext(enemy: Entity): void {
         this.foe = enemy;
     }
 
-    public takeDamageCallbacks():void{}
-    public updateHealthBar():void{}
+    public takeDamageCallbacks(): void { }
+    public updateHealthBar(): void { }
 }
 
 export default Entity;
