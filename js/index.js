@@ -6,12 +6,12 @@ var Game = /** @class */ (function () {
     function Game() {
         var _this = this;
         this.gold = 0;
-        this.stage = 1;
+        this.area = 1;
         this.addGold = function () {
             _this.gold += 1;
         };
-        this.nextStage = function () {
-            _this.stage += 1;
+        this.nextarea = function () {
+            _this.area += 1;
             _this.generateEnemy();
         };
         this.player = new player_1.default();
@@ -21,7 +21,7 @@ var Game = /** @class */ (function () {
         var _this = this;
         var stats = function () {
             return {
-                identifier: _this.stage,
+                identifier: _this.area,
                 base_damage: 1,
                 max_health: 10,
                 health: 10,

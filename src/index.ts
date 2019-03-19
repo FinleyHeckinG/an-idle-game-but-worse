@@ -1,12 +1,27 @@
 import Player from "./player";
 import Enemy from "./enemy";
 
-import { EntityStats } from './data/interfaces'
+import { StatsGen } from './statsGenerator'
+
+// INFO:
+/*
+    Firstly, wagwan
+
+    How the game works:
+        - Users attack enemies.
+        - Users stats effect damage, stats include:
+            - Luck
+            - Strength
+            - ...
+        - After an enemy dies another is created, each enemy is called an "area".
+        - Every 20 enemies there is a floor boss, after killing it the floor is increased.
+*/
 
 class Game {
 
     gold: number = 0;
-    stage: number = 1;
+    area: number = 1;
+    floor: number = 1;
     player: Player;
     currentEnemy: Enemy;
 
@@ -15,27 +30,34 @@ class Game {
         this.generateEnemy();
     }
 
-    private generateEnemy() {
-        let stats = (): EntityStats => {
-            return {
-                identifier: this.stage,
-                base_damage: 1,
-                max_health: 10,
-                health: 10,
-            }
+    private generateEnemy(boss: boolean = false) {
+        if (boss) {
+            this.currentEnemy = new Enemy(
+                StatsGen.generateBossStats(this.floor, this.area)
+            );
+        } else {
+            this.currentEnemy = new Enemy(
+                StatsGen.generateEnemyStats(this.floor, this.area)
+            );
         }
-        this.currentEnemy = new Enemy(stats());
+
         this.player.setFoeContext(this.currentEnemy);
         this.currentEnemy.setFoeContext(this.player);
     }
 
-    public addGold = () => {
-        this.gold += 1;
+    public addGold = () => this.gold += StatsGen.generateGold(this.area);
+
+    public nextarea = () => {
+        if (this.area % 5 == 0) {
+            this.generateEnemy(true);
+            this.floor++;
+            this.area = 1;
+        } else {
+            this.generateEnemy(false);
+            this.area++;
+        }
     }
-    public nextStage = () => {
-        this.stage += 1;
-        this.generateEnemy();
-    }
+
 }
 
 const GAME = new Game();

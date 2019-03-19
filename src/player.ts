@@ -12,10 +12,9 @@ class Player extends Entity {
 
     //Defaults
     statistics: EntityStats = {
-        identifier: "Player",
-        base_damage: 1,
         max_health: 100,
         health: 100,
+        base_damage: 1,
         exp: 0,
         exp_to_next: 20,
     }

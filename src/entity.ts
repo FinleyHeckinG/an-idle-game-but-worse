@@ -1,6 +1,7 @@
 import GAME from './index'
 import MappedDOM from './includes/domMap'
 import { EntityStats, AttackEvent } from './data/interfaces'
+import { settings } from './settings';
 
 class Entity {
     statistics: EntityStats;
@@ -20,7 +21,7 @@ class Entity {
             this.takeDamageCallbacks(diff);
         }
         if (val <= 0) {
-            GAME.nextStage();
+            GAME.nextarea();
         } else {
             this.updateHPDisplay();
         }
@@ -32,7 +33,7 @@ class Entity {
     }
 
     public giveAttack(event: AttackEvent): void {
-        this.foe.hp = this.foe.hp - Math.round((event.damage * (Math.random() + 1)) * 100) / 100;
+        this.foe.hp = this.foe.hp - Math.round((event.damage * (Math.random() + settings.damageVariance)) * 100) / 100;
     }
 
     public setFoeContext(enemy: Entity): void {

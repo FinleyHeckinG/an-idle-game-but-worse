@@ -15,7 +15,7 @@ var Entity = /** @class */ (function () {
                 this.takeDamageCallbacks();
             }
             if (val <= 0) {
-                index_1.default.nextStage();
+                index_1.default.nextarea();
             }
             else {
                 this.updateHPDisplay();
