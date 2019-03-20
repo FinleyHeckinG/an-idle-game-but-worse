@@ -32,7 +32,7 @@ class StatsGenerator {
 
     public generateGold(area: number): number {
         let gold: number;
-
+        gold = area * 10;
         return gold;
     };
 

@@ -1,9 +1,12 @@
 body{
     margin: 0;
 }
+*{
+    user-select: none;
+}
 a, p, span, h1, h2, h3, h4, h5, h6, button{
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 #game{
     display: flex;
@@ -16,8 +19,35 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     width: 80%;
     overflow: hidden;
 }
+#player-area{
+    background: #111;
+    box-shadow: 0 0 20px 5px #111;
+    display: flex;
+    align-items: center;
+}
 #upgrades-area{
     width: 20%;
+}
+
+#user-controls{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.fighter-slot-container{
+    width: 35%;
+    margin: 0 5%;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.fighter-slot{
+    width: 100%;
+    padding-top: 20%;
+    position:relative;
+    width: 60px;
+    background: blue;
 }
 .enemy, .player{
     flex-shrink: 0;
@@ -25,15 +55,15 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     position: relative;
 }
 .enemy{
-    background: url('../images/enemy_bg.jpg');
-    background-size: 110%;
+    background-image: radial-gradient(#333 0%, #333, rgb(30,30,30) 100%);
+    background-size: 100%;
     background-position: 50% 50%;
-    height: 70%;
+    height: 75%;
     box-shadow:  0px 0px 0px 10px rgba(255,0,0,0) inset;
     transition: 0.1s;
 }
 .player{
-    height: 30%;
+    height: 25%;
 }
 .hit{
     box-shadow: 0px 0px 0px 10px rgba(255,0,0,0.5) inset;
@@ -43,7 +73,7 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     top: -20px;
     right: 0;
     transform: translateY(-50%);
-    color: #000;
+    color: #FFF;
     text-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 #enemyHPBarWrapper{
@@ -54,6 +84,7 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     width: calc(100% - 100px);
     background: rgba(0,0,0,0.8);
     border-radius: 10px;
+    border: 4px solid black;
 }
 #enemyHPBar{
     position:absolute;
@@ -61,26 +92,29 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgb(255, 10, 10);
+    background: linear-gradient(to bottom, red, #ffd8d8, red, red);
     transition: width 0.1s linear;
     border-radius: 10px;
 }
 
 #click {
-    width: 100%;
-    height: 100%;
+    width: 30%;
+    flex-shrink: 0;
     position: relative;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 40px;
-    background: #222;
+    padding: 20px;
+    background: #c9b550;
     color: white;
     border: none;
     cursor: pointer;
+    border: 10px outset goldenrod;
 }
 
-#click:hover {
-    background: #111;
+#click:active {
+    background: #a79644;
+    border: 10px inset goldenrod;
 }
 
 #click:focus {
@@ -99,6 +133,9 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
 .damageLabel{
     position: absolute;
     font-weight: bold;
+    font-size: 6vmin;
+    color: white;
+    text-shadow: -1px -1px 0 #f00, 1px -1px 0 #f00, -1px 1px 0 #f00, 1px 1px 0 #f00;
 }
 
 @keyframes labelFloat{
@@ -110,6 +147,6 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     }
     100%{
         opacity: 0;
-        transform: translate(-50%, -400%);
+        transform: translate(-50%, -100%);
     }
 }
