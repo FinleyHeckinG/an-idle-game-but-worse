@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    overflow: hidden;
 }
 *{
     user-select: none;
@@ -32,22 +33,37 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
 #user-controls{
     display: flex;
     width: 100%;
+    height: 100%;
+    align-items: center;
     justify-content: space-around;
 }
 .fighter-slot-container{
     width: 35%;
     margin: 0 5%;
-    background: red;
     display: flex;
+    position: relative;
+    height: 50%;
     align-items: center;
     justify-content: space-evenly;
 }
 .fighter-slot{
-    width: 100%;
-    padding-top: 20%;
+    opacity: 1;
+    border: 2px dashed rgba(255,255,255,0.4);
+    height: 100%;
     position:relative;
-    width: 60px;
-    background: blue;
+    margin:3px;
+}
+.fighter-slot-highlight{
+    border: 2px dashed rgba(255,255,255,1);
+}
+.fighter-slot-in-use{
+    opacity: 1;
+    border: 5px ridge goldenrod;
+    margin: 0;
+}
+.fighter-slot > img{
+    height: 100%;
+    opacity: 0.4;
 }
 .enemy, .player{
     flex-shrink: 0;
@@ -100,21 +116,24 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
 #click {
     width: 30%;
     flex-shrink: 0;
+    flex-grow: 0;
+    height: 60%;
     position: relative;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 40px;
-    padding: 20px;
+    font-size: 2vmax;
+    line-height: 1;
+    padding: 1% 0;
     background: #c9b550;
     color: white;
     border: none;
     cursor: pointer;
-    border: 10px outset goldenrod;
+    border: 0.3em outset goldenrod;
 }
 
 #click:active {
     background: #a79644;
-    border: 10px inset goldenrod;
+    border: 0.3em inset goldenrod;
 }
 
 #click:focus {
@@ -136,6 +155,21 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     font-size: 6vmin;
     color: white;
     text-shadow: -1px -1px 0 #f00, 1px -1px 0 #f00, -1px 1px 0 #f00, 1px 1px 0 #f00;
+}
+
+#mouse-follow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 13vh;
+    width: 13vh;
+    z-index: 9999;
+    display: none;
+}
+#mouse-follow img{
+    width: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes labelFloat{

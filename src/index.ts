@@ -2,6 +2,7 @@ import Player from "./player";
 import Enemy from "./enemy";
 
 import { StatsGen } from './statsGenerator'
+import userDragManager from './includes/userDragManager'
 
 // INFO:
 /*
@@ -29,6 +30,7 @@ class Game {
     constructor() {
         this.player = new Player();
         this.generateEnemy();
+        new userDragManager();
     }
 
     private generateEnemy(boss: boolean = false) {
