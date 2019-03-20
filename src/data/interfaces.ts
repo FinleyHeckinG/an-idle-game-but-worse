@@ -11,12 +11,8 @@ export interface EntityStats {
 export interface Companion {
     damage: number,
     frequency: number,
-    image: URL,
+    image: string,
     stage: CompanionStage
-}
-
-export interface DropZone {
-
 }
 
 // Add changeable global settings here

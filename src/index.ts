@@ -24,13 +24,16 @@ class Game {
     area: number = 1;
     areaTotal: number = 1;
     floor: number = 1;
+
     player: Player;
     currentEnemy: Enemy;
+
+    userDragManager: userDragManager;
 
     constructor() {
         this.player = new Player();
         this.generateEnemy();
-        new userDragManager();
+        this.userDragManager = new userDragManager();
     }
 
     private generateEnemy(boss: boolean = false) {
