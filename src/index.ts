@@ -4,6 +4,7 @@ import Enemy from "./enemy";
 import { StatsGen } from './statsGenerator'
 import userDragManager from './includes/userDragManager'
 import { DropPool } from "./components/dropzone";
+import Draw from "./components/draw"
 
 // INFO:
 /*
@@ -37,6 +38,8 @@ class Game {
         this.generateEnemy();
         this.dropPool = new DropPool();
         this.userDragManager = new userDragManager();
+
+        new Draw(document.getElementById("summon-draw"), "Owo");
     }
 
     private generateEnemy(boss: boolean = false) {
