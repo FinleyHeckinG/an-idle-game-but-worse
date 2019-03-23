@@ -1,8 +1,7 @@
 import { Companion } from "../data/interfaces";
 import Game from "../index"
 import MappedDOM from "../includes/domMap";
-import { GAMESETTINGS } from "../settings";
-import CompanionGenerator from "../companionGenerator"
+import CompanionGenerator from "../companionGenerator";
 
 export class Dropzone {
     public held: Companion;
@@ -19,7 +18,8 @@ export class Dropzone {
     
         this.dom.addEventListener("mouseover", this.mouseOver);
         this.dom.addEventListener("mouseout", this.mouseOut);
-
+        
+        // test
         let cg = new CompanionGenerator();
         this.recieve(cg.newCompanion());
     }
@@ -117,6 +117,7 @@ class DropPoolItem {
         let container, img;
         container = document.createElement("div");
         container.classList.add("companion-pool-item");
+        container.classList.add("fighter-slot-" + this.held.rarity)
         img = document.createElement("img");
         img.src = this.held.image;
         img.draggable = false;
