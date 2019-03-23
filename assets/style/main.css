@@ -48,26 +48,11 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
 }
 .fighter-slot{
     opacity: 1;
-    border: 2px dashed rgba(255,255,255,0.4);
     height: 100%;
     position:relative;
     margin:3px;
 }
-.fighter-slot-highlight{
-    border: 2px dashed rgba(255,255,255,1);
-}
-.fighter-slot-in-use{
-    opacity: 1;
-    border: 5px ridge goldenrod;
-    margin: 0;
-}
-.fighter-slot > img{
-    height: 100%;
-    opacity: 0.4;
-}
-.fighter-slot-in-use > img{
-    opacity: 1;
-}
+
 .enemy, .player{
     flex-shrink: 0;
     flex-grow: 0;
@@ -174,7 +159,52 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     position: absolute;
     transform: translate(-50%, -50%);
 }
-
+#upgrades-content{
+    height:100%;
+    box-sizing: border-box;
+    background: #222;
+    padding: 40px;
+}
+#companion-pool{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-image: radial-gradient(#333 0%, #333, rgb(30,30,30) 100%);
+    padding: 10px;
+}
+.companion-pool-item{
+    width: calc(50% - 20px);
+    display: inline-block;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #444;
+    cursor: pointer;
+}
+.companion-pool-item img{
+    width: 100%;
+}
+.companion-background-hovered{
+    background: #333;
+}
+.dashed-border{
+    border: 2px dashed rgba(255,255,255,0.2);
+}
+.dashed-border-highlighted{
+    border: 2px dashed rgba(255,255,255,1);
+}
+.fighter-slot-in-use{
+    opacity: 1;
+    border: 5px ridge goldenrod;
+    margin: 0;
+}
+.fighter-slot > img{
+    height: 100%;
+    opacity: 0.4;
+}
+.fighter-slot-in-use > img{
+    opacity: 1;
+}
 @keyframes labelFloat{
     0%{
         transform: translate(-50%, 0);

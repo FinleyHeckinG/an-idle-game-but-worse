@@ -1,13 +1,13 @@
 import { Companion } from '../data/interfaces'
 import MappedDOM from './domMap';
-import Dropzone from '../components/dropzone'
+import {Dropzone, DropPool} from '../components/dropzone'
 
 class userDraggableManager {
     public held: Companion;
-    public revert: Dropzone;
+    public revert: Dropzone | DropPool;
     public holding: boolean = false;
 
-    public targetedDropzone: Dropzone;
+    public targetedDropzone: Dropzone | DropPool;
 
     public slots: any[] = new Array(4);
 
@@ -71,7 +71,7 @@ class userDraggableManager {
         }
     }
 
-    public setDropzone(dropzone: Dropzone) {
+    public setDropzone(dropzone: Dropzone | DropPool) {
         this.targetedDropzone = dropzone;
     }
 
@@ -79,7 +79,7 @@ class userDraggableManager {
         this.targetedDropzone = undefined;
     }
 
-    public pickup(companion: Companion, revertArea: Dropzone) {
+    public pickup(companion: Companion, revertArea: Dropzone | DropPool) {
         this.heldCompanion = companion;
         this.holding = true;
         this.revert = revertArea;

@@ -9,10 +9,12 @@ export interface EntityStats {
 }
 
 export interface Companion {
-    damage: number,
-    frequency: number,
+    name: string,
     image: string,
-    stage: CompanionStage
+    damage: number,
+    speed: number,
+    stage: CompanionStage,
+    rarity: string
 }
 
 // Add changeable global settings here

@@ -3,6 +3,7 @@ import Enemy from "./enemy";
 
 import { StatsGen } from './statsGenerator'
 import userDragManager from './includes/userDragManager'
+import { DropPool } from "./components/dropzone";
 
 // INFO:
 /*
@@ -29,10 +30,12 @@ class Game {
     currentEnemy: Enemy;
 
     userDragManager: userDragManager;
+    dropPool: DropPool;
 
     constructor() {
         this.player = new Player();
         this.generateEnemy();
+        this.dropPool = new DropPool();
         this.userDragManager = new userDragManager();
     }
 
