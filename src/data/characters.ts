@@ -45,6 +45,32 @@ export const COMPANIONS_LIST = {
                 max: 1400
             },
             maxStage: 3
+        },
+        {
+            name: "sans",
+            image: "placeholder",
+            damage: {
+                min: 10,
+                max: 30
+            },
+            speed: {
+                min: 1000,
+                max: 1400
+            },
+            maxStage: 3
+        },
+        {
+            name: "owo",
+            image: "placeholder2",
+            damage: {
+                min: 10,
+                max: 30
+            },
+            speed: {
+                min: 1000,
+                max: 1400
+            },
+            maxStage: 3
         }
     ],
     

@@ -2,6 +2,7 @@ import { Companion } from "../data/interfaces";
 import Game from "../index"
 import MappedDOM from "../includes/domMap";
 import { GAMESETTINGS } from "../settings";
+import CompanionGenerator from "../companionGenerator"
 
 export class Dropzone {
     public held: Companion;
@@ -15,9 +16,12 @@ export class Dropzone {
             "../images/playerbg.png",
             "src"
         );
+    
         this.dom.addEventListener("mouseover", this.mouseOver);
         this.dom.addEventListener("mouseout", this.mouseOut);
 
+        let cg = new CompanionGenerator();
+        this.recieve(cg.newCompanion());
     }
 
     public recieve(companion: Companion) {
@@ -25,7 +29,7 @@ export class Dropzone {
             this.held = companion;
             this.img.val = companion.image;
             this.dom.addEventListener("mousedown", this.remove);
-            this.dom.classList.add("fighter-slot-in-use");
+            this.dom.classList.add("fighter-slot-" + this.held.rarity);
         }
     }
 
@@ -44,10 +48,10 @@ export class Dropzone {
     public remove = () => {
         if (this.held) {
             Game.userDragManager.pickup(this.held, this);
+            this.dom.classList.remove("fighter-slot-" + this.held.rarity);
             this.held = undefined;
             this.img.val = "assets/images/playerbg.png";
             this.dom.removeEventListener("mousedown", this.remove);
-            this.dom.classList.remove("fighter-slot-in-use");
         }
     }
 }

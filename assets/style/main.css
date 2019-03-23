@@ -193,7 +193,17 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
 .dashed-border-highlighted{
     border: 2px dashed rgba(255,255,255,1);
 }
-.fighter-slot-in-use{
+.fighter-slot-common{
+    opacity: 1;
+    border: 5px ridge #666;
+    margin: 0;
+}
+.fighter-slot-rare{
+    opacity: 1;
+    border: 5px ridge rgb(49, 125, 168);
+    margin: 0;
+}
+.fighter-slot-legendary{
     opacity: 1;
     border: 5px ridge goldenrod;
     margin: 0;
@@ -202,7 +212,7 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     height: 100%;
     opacity: 0.4;
 }
-.fighter-slot-in-use > img{
+.fighter-slot-common > img, .fighter-slot-rare > img, .fighter-slot-legendary > img{
     opacity: 1;
 }
 @keyframes labelFloat{
