@@ -55,7 +55,7 @@ class Draw{
                 if(difference(MouseUpEvent.x, MouseDownEvent.x) < 5){
                     this.toggle();
                 } else {
-                    if(MouseUpEvent.x > boxWidth / 1.5){
+                    if(MouseUpEvent.x > boxWidth / (this.opened ? 1.25 : 4)){
                         this.open();
                     } else {
                         this.close();

@@ -39,7 +39,7 @@ class Game {
         this.dropPool = new DropPool();
         this.userDragManager = new userDragManager();
 
-        new Draw(document.getElementById("summon-draw"), "Owo");
+        new Draw(document.getElementById("summon-draw"), "summon");
     }
 
     private generateEnemy(boss: boolean = false) {
