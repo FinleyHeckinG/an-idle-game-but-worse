@@ -221,7 +221,7 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     width: 60vw;
     left: 0;
     top: 0;
-    background: #444;
+    background: #3c3c3c;
     box-shadow: 10px 0 10px #00000011;
     transform: translateX(-0%);
 }
@@ -230,12 +230,13 @@ a, p, span, h1, h2, h3, h4, h5, h6, button{
     right: 0;
     top: 50%;
     transform: translate(100%, -50%);
-    background: #444;
+    background: #3a3a3a;
     height: 15vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    border-radius: 0 10px 10px 0;
 }
 .tab span{
     writing-mode: vertical-lr;
