@@ -5,6 +5,7 @@ import { StatsGen } from './statsGenerator'
 import userDragManager from './includes/userDragManager'
 import { DropPool } from "./components/dropzone";
 import Draw from "./components/draw"
+import CompanionSummonManager from "./companionSummon"
 
 // INFO:
 /*
@@ -39,6 +40,7 @@ class Game {
         this.dropPool = new DropPool();
         this.userDragManager = new userDragManager();
 
+        new CompanionSummonManager();
         new Draw(document.getElementById("summon-draw"), "summon");
     }
 
